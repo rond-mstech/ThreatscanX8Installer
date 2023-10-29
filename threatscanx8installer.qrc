@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>images/msd_logo_320.png</file>
+    </qresource>
+</RCC>
