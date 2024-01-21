@@ -9,7 +9,8 @@
 
 //#define     USE_FIRMWARE_SELECT_DIALOG
 
-const QString command_to_execute = "/usr/bin/install_yocto.sh";
+const QString command_to_execute = "/usr/bin/install_yocto-ms.sh";
+const char * command_to_execute0 = "weston-touch-calibrator  -v /sys/devices/platform/bus@5b000000/5b0d0000.usb/ci_hdrc.0/usb1/1-1/1-1.2/1-1.2:1.0/0003:222A:0001.0001/input/input2/event2";
 const QStringList arguments = {}; //{"-a", "-b"};
 
 MainWindow::MainWindow(QWidget *parent)
@@ -33,6 +34,8 @@ MainWindow::MainWindow(QWidget *parent)
 
     QPixmap pix(":/images/msd_logo_320.png");
     ui->logoLabel->setPixmap(pix);
+
+    system(command_to_execute0);
 
 }
 MainWindow::~MainWindow()
