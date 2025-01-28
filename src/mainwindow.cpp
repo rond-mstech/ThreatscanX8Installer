@@ -6,6 +6,7 @@
 #include <QMessageBox>
 #include <QDesktopWidget>
 #include <QDebug>
+#include <QScreen>
 
 //#define     USE_FIRMWARE_SELECT_DIALOG
 
@@ -31,6 +32,13 @@ MainWindow::MainWindow(QWidget *parent)
     ui->outputTextEdit->setReadOnly(true);
     ui->outputTextEdit->setHtml("");
     ui->outputTextEdit->verticalScrollBar()->setStyleSheet("QScrollBar:vertical { width: 25px; }");
+
+
+    QSize size = qApp->screens()[0]->size();
+
+    setGeometry(0, 0, size.width()-1, size.height() - 1);
+    setWindowFlags(Qt::FramelessWindowHint);
+    setWindowTitle("");
 
     QPixmap pix(":/images/msd_logo_320.png");
     ui->logoLabel->setPixmap(pix);
